@@ -1,6 +1,6 @@
 # Heart Disease Prediction
 
-This project uses machine learning to predict the presence of heart disease in patients based on various clinical features. The workflow includes data exploration, feature engineering, model training, and visual evaluation.
+This project uses machine learning to select the optimal ML algorithm to predict the presence of heart disease in patients (based on various clinical features). The workflow includes data exploration, feature engineering, model training, and visual evaluation.
 
 ## Dataset
 
@@ -54,46 +54,82 @@ C:\Users\cliff\OneDrive\Documents\Machine Learning\heart.csv
 
 ## Model Training and Evaluation
 
-### Models Compared
+This project uses four supervised machine learning algorithms to classify patients as having or not having heart disease. Each model is trained, evaluated, and compared using consistent methods and metrics.
 
-- Logistic Regression
-- Random Forest Classifier
-- Support Vector Machine (SVM)
-- K-Nearest Neighbors (KNN)
+### Models Used
 
-### Process
+1. **Logistic Regression**  
+   A linear model used as a strong baseline for binary classification problems.
 
-- Split data into training and test sets (80/20)
-- Scale features using `StandardScaler`
-- Train each model on the training data
-- Evaluate models on the test data
+2. **Random Forest Classifier**  
+   An ensemble of decision trees that reduces overfitting and improves predictive power.
 
-### Metrics Used
+3. **Support Vector Machine (SVM)**  
+   Finds the optimal hyperplane to separate classes, effective for high-dimensional spaces.
 
+4. **K-Nearest Neighbors (KNN)**  
+   A distance-based model that classifies a point based on the majority label of its neighbors.
+
+---
+
+### Training Workflow
+
+1. **Train-Test Split**
+   - The dataset is split into 80% training and 20% testing sets using `train_test_split`.
+   - Stratification ensures class proportions are consistent between training and testing.
+
+2. **Feature Scaling**
+   - StandardScaler is used to normalize the feature values.
+   - Scaling is critical for distance-based models (like SVM and KNN) and improves model convergence.
+
+3. **Model Fitting**
+   - Each model is trained on the scaled training data.
+   - The models use default parameters unless otherwise noted.
+
+4. **Prediction**
+   - Predictions are made on the test data.
+   - For models that support it, prediction probabilities are used to evaluate ROC-AUC.
+
+---
+
+### Evaluation Metrics
+
+Each model is evaluated on the test set using the following metrics:
+
+- **Accuracy**: Proportion of total correct predictions
+- **Precision**: True positives / predicted positives (measures false positives)
+- **Recall**: True positives / actual positives (measures false negatives)
+- **F1 Score**: Harmonic mean of precision and recall (balances both)
+- **AUC (Area Under the Curve)**: Measures classifier performance across all thresholds using the ROC curve
+
+---
+
+### Visualization
+
+The project produces the following visual outputs for each model:
+
+- **Confusion Matrix**  
+  A heatmap showing true vs. predicted labels to analyze misclassifications.
+
+- **ROC Curve**  
+  Plots True Positive Rate (Recall) vs. False Positive Rate to visualize the trade-off at various thresholds.
+  - Each model's AUC score is displayed to summarize performance.
+
+All confusion matrices and ROC curves are presented in **tiled grid layouts** for clear side-by-side comparison.
+
+---
+
+### Summary Output
+
+At the end of the script, a summary table shows each model’s:
 - Accuracy
 - Precision
 - Recall
 - F1 Score
-- Area Under the Curve (AUC)
+- AUC
 
----
+This allows for quick comparison and selection of the best-performing classifier based on the problem requirements.
 
-## Visual Outputs
-
-Two sets of visualizations are produced for each model:
-
-1. **Confusion Matrices:** Displayed in a tiled grid for side-by-side comparison
-2. **ROC Curves:** Tiled layout with AUC displayed for each model
-
-These help evaluate performance and trade-offs across all models at a glance.
-
----
-
-## Results
-
-A summary table is printed showing all metrics per model, sorted by F1 score to highlight the best-performing classifiers.
-
----
 
 ## How to Run
 
