@@ -1,6 +1,6 @@
 # Heart Disease Prediction
 
-This is my first Machine Learning project. This project uses machine learning to select the optimal ML algorithm to predict the presence of heart disease in patients (based on various clinical features). The workflow includes data exploration, feature engineering, model training, and visual evaluation.
+This is my first Machine Learning project. This project uses machine learning to select an optimal ML algorithm to predict the presence of heart disease in patients (based on various clinical features). The workflow includes data exploration, feature engineering, model training, and visual evaluation.
 
 ## Dataset
 
