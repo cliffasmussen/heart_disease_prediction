@@ -14,8 +14,10 @@ import seaborn as sns
 # Load the dataset
 df = pd.read_csv(r"C:\Users\cliff\OneDrive\Documents\Machine Learning\heart.csv")
 
+
+
 # ----- Initial Dataset Description -----
-print("✅ FIRST LOOK AT THE DATASET\n")
+print("Dataset Description\n")
 print("First 5 rows:")
 print(df.head(), "\n")
 
@@ -28,12 +30,17 @@ print(df.describe(), "\n")
 print("Missing Values per Column:")
 print(df.isnull().sum(), "\n")
 
+
+
 # ----- Data Cleaning -----
 df.drop_duplicates(inplace=True)
 
 # ----- Feature Type Detection -----
 numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
 categorical_cols = df.select_dtypes(include=['object', 'category']).columns
+
+
+
 
 # ----- Univariate Visualizations -----
 
@@ -47,8 +54,8 @@ for i, col in enumerate(numeric_cols, 1):
     plt.subplot(nrows, ncols, i)
     plt.hist(df[col], bins=20, edgecolor='black')
     plt.title(col)
-plt.tight_layout()
-plt.suptitle('Histograms of Numeric Features', fontsize=16, y=1.02)
+plt.suptitle('Histograms of Numeric Features', fontsize=16)
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.show()
 
 # Count plots for categorical features
@@ -61,13 +68,19 @@ if cat_features > 0:
         plt.subplot(nrows, ncols, i)
         sns.countplot(x=col, data=df)
         plt.title(col)
-    plt.tight_layout()
-    plt.suptitle('Count Plots of Categorical Features', fontsize=16, y=1.02)
+    plt.suptitle('Count Plots of Categorical Features', fontsize=16)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
 else:
     print("No categorical features found.\n")
 
+
+
 # ----- Feature Engineering -----
+print()
+print()
+print("Feature Engineering:")
+print()
 
 # 1. Create new features
 if 'age' in df.columns:
@@ -94,6 +107,9 @@ else:
 print("\nShape of dataset after feature engineering:", df_selected.shape)
 print("Final columns:")
 print(df_selected.columns.tolist())
+
+print()
+print()
 
 
 
@@ -168,7 +184,7 @@ for name, model in models.items():
 
 # ----- Summary Table -----
 results_df = pd.DataFrame(results)[["Model", "Accuracy", "Precision", "Recall", "F1", "AUC"]].set_index("Model")
-print("\n📊 Model Comparison Summary:")
+print("Model Comparison Summary:")
 print(results_df.sort_values(by='F1', ascending=False))
 
 # ----- Plot All Confusion Matrices -----
@@ -189,7 +205,8 @@ for i, res in enumerate(results):
 for j in range(i + 1, len(axes)):
     fig.delaxes(axes[j])
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.suptitle('Confusion Matrices for All Models', fontsize=16)
 plt.show()
 
 # ----- Plot All ROC Curves -----
@@ -210,8 +227,10 @@ for i, res in enumerate(results):
 for j in range(i + 1, len(axes)):
     fig.delaxes(axes[j])
 
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.suptitle('ROC Curves for All Models', fontsize=16)
 plt.show()
+
 
 
 
