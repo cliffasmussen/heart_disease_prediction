@@ -1,107 +1,103 @@
-Heart Disease Prediction Project
-This project focuses on predicting the presence of heart disease using machine learning techniques. It includes steps for data preparation, exploratory analysis, feature engineering, model training, evaluation, and visual comparison of classification results.
+# Heart Disease Prediction
 
-Dataset Overview
-The dataset used in this project contains various medical and demographic features such as:
+This project uses machine learning to predict the presence of heart disease in patients based on various clinical features. The workflow includes data exploration, feature engineering, model training, and visual evaluation.
 
-Age
+## Dataset
 
-Sex
+The dataset is a CSV file containing medical and demographic information. The target variable is `HeartDisease`, a binary indicator (1 = presence of heart disease, 0 = absence).
 
-Cholesterol levels
+**Example features include:**
 
-Blood pressure
+- Age
+- Sex
+- Resting blood pressure
+- Cholesterol
+- Maximum heart rate
+- Chest pain type
+- Fasting blood sugar
+- And more
 
-Other health indicators
+The dataset is loaded from the following path (update as needed):
 
-The target variable is HeartDisease, indicating whether or not a patient is diagnosed with heart disease (binary: 0 or 1).
-
-The dataset is loaded from:
-
-makefile
-Copy
 C:\Users\cliff\OneDrive\Documents\Machine Learning\heart.csv
-Workflow Summary
-1. Data Loading and Initial Exploration
-Load the dataset using pandas
 
-Display the first few rows, data types, summary statistics, and missing values
 
-2. Data Cleaning
-Remove duplicate records
+---
 
-Separate numeric and categorical features
+## Project Workflow
 
-3. Exploratory Data Analysis (EDA)
-Numeric features: Visualized using histograms
+### 1. Data Loading and Initial Exploration
 
-Categorical features: Visualized using count plots
+- Load the dataset using pandas
+- Preview the structure using `.head()`, `.info()`, and `.describe()`
+- Check for and report missing values
 
-4. Feature Engineering
-Creation of a new categorical feature: age_bin (based on age ranges)
+### 2. Data Cleaning
 
-Encoding of categorical variables using one-hot encoding
+- Remove duplicate rows
+- Identify numeric and categorical features for visualization and preprocessing
 
-Feature selection based on correlation with the target variable
+### 3. Exploratory Data Analysis (EDA)
 
-A final dataset is prepared using only features with significant correlation to HeartDisease
+- **Numeric features:** Visualized using histograms
+- **Categorical features:** Visualized using count plots
+- Designed to give a quick understanding of feature distributions
 
-Model Training and Evaluation
-Four classification models are trained and compared:
+### 4. Feature Engineering
 
-Logistic Regression
+- Create new features, e.g., `age_bin` for age groups
+- Encode categorical variables using one-hot encoding
+- Compute correlation with the `HeartDisease` target
+- Select features with a strong correlation to improve model performance
 
-Random Forest Classifier
+---
 
-Support Vector Machine (SVM)
+## Model Training and Evaluation
 
-K-Nearest Neighbors (KNN)
+### Models Compared
 
-Steps Performed:
-The data is split into training and testing sets using an 80/20 split
+- Logistic Regression
+- Random Forest Classifier
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
 
-Features are scaled using StandardScaler
+### Process
 
-Each model is trained on the training data
+- Split data into training and test sets (80/20)
+- Scale features using `StandardScaler`
+- Train each model on the training data
+- Evaluate models on the test data
 
-Predictions are made on the test data
+### Metrics Used
 
-Evaluation Metrics:
-Accuracy
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Area Under the Curve (AUC)
 
-Precision
+---
 
-Recall
+## Visual Outputs
 
-F1 Score
+Two sets of visualizations are produced for each model:
 
-Area Under the ROC Curve (AUC)
+1. **Confusion Matrices:** Displayed in a tiled grid for side-by-side comparison
+2. **ROC Curves:** Tiled layout with AUC displayed for each model
 
-Visualizations
-Two separate visual comparisons are generated:
+These help evaluate performance and trade-offs across all models at a glance.
 
-Confusion Matrices: All confusion matrices for the four models are displayed in a tiled grid layout for easy comparison.
+---
 
-ROC Curves: ROC curves for each model are also plotted in a tiled layout, along with the AUC scores, to visually assess the trade-off between true and false positive rates.
+## Results
 
-Summary Output
-The script provides:
+A summary table is printed showing all metrics per model, sorted by F1 score to highlight the best-performing classifiers.
 
-A tabular summary of all models and their evaluation metrics
+---
 
-Side-by-side visual comparison of classification performance through confusion matrices and ROC curves
+## How to Run
 
-How to Use
-Ensure the required Python packages are installed:
+1. Make sure the following packages are installed:
 
-bash
-Copy
+```bash
 pip install pandas matplotlib seaborn scikit-learn
-Update the file path to heart.csv in the script if needed.
-
-Run the script using a Python IDE such as Spyder, Jupyter Notebook, or directly from a terminal.
-
-Notes
-The code is written for easy readability and modular structure, making it simple to extend.
-
-Next steps can include cross-validation, hyperparameter tuning, feature importance analysis, or model deployment.
