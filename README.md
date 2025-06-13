@@ -137,3 +137,8 @@ This allows for quick comparison and selection of the best-performing classifier
 
 ```bash
 pip install pandas matplotlib seaborn scikit-learn
+```
+2. Download heart.csv from respoitory
+3. Replace file path to load dataset (Line 15)
+4. Run code 
+
