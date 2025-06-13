@@ -130,9 +130,8 @@ At the end of the script, a summary table shows each model’s:
 
 This allows for quick comparison and selection of the best-performing classifier based on the problem requirements.
 
-# Heart Disease Prediction – Model Comparison
 
-## Results Analysis and Model Recommendation
+### Results Analysis and Model Recommendation
 
 **See the Model Comparison Table Below:**
 
