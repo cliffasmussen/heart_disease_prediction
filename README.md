@@ -1,6 +1,6 @@
 # Heart Disease Prediction
 
-Welcome to my first Machine Learning project! This objective of this project is to select an optimal classification machine learning algorithm to predict the presence of heart disease in patients (based on various clinical features). The workflow includes data exploration, feature engineering, model training, and visual evaluation.
+Welcome to my first Machine Learning project! The objective of this project is to select an optimal classification machine learning algorithm to predict the presence of heart disease in patients (based on various clinical features). The workflow includes data exploration, feature engineering, model training, and visual evaluation.
 
 ## Dataset
 
