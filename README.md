@@ -130,6 +130,27 @@ At the end of the script, a summary table shows each model’s:
 
 This allows for quick comparison and selection of the best-performing classifier based on the problem requirements.
 
+# Heart Disease Prediction – Model Comparison
+
+## Results Analysis and Model Recommendation
+
+**See the Model Comparison Table Below:**
+
+| Model                | Accuracy | Precision | Recall  | F1     | AUC    |
+|----------------------|----------|-----------|---------|--------|--------|
+| Logistic Regression  | 0.8859   | 0.8716    | 0.9314  | 0.9005 | 0.9297 |
+| Random Forest        | 0.8641   | 0.8667    | 0.8922  | 0.8792 | 0.9323 |
+| SVM                  | 0.9022   | 0.8818    | 0.9510  | 0.9151 | 0.9443 |
+| KNN                  | 0.8859   | 0.8857    | 0.9118  | 0.8986 | 0.9360 |
+
+The model comparison summary indicates that all four models—Logistic Regression, Random Forest, SVM, and KNN—performed well in predicting heart disease, each achieving high accuracy and F1 scores. Among them, **SVM (Support Vector Machine)** demonstrated the highest overall performance, with an accuracy of 0.9022, recall of 0.9510, F1 score of 0.9151, and the top AUC of 0.9443. This suggests SVM is especially strong at correctly identifying true positive cases, which is critical in medical applications where missing positive cases could have serious consequences.
+
+KNN and Logistic Regression also achieved strong results, with accuracies and F1 scores above 0.88. Logistic Regression, with its strong interpretability and a recall of 0.9314, is a suitable alternative where model transparency is needed. Random Forest performed well, but slightly lagged behind the others in terms of recall and F1, despite its robustness to overfitting.
+
+**Recommendation:**  
+Given the importance of sensitivity (recall) and overall discriminative power (AUC) in heart disease prediction, the **SVM model is recommended as the optimal choice**. For applications prioritizing interpretability, Logistic Regression is a strong secondary option. Further hyperparameter tuning and validation on larger datasets are suggested to confirm these findings before deployment.
+
+
 
 ## How to Run
 
